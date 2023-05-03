@@ -5,18 +5,19 @@ import SearchBar from '../components/SearchBar';
 import Categories from '../components/Categories';
 import RestaurantItem, {localRestaurants} from '../components/RestaurantItem';
 
-const API_KEY = '7885325ad0mshc35e21f8ad91717p11b15cjsn1e443e14fbda';
 
 const axios = require('axios');
 
-const encodedParams = new URLSearchParams();
-encodedParams.set('language', 'en_US');
-encodedParams.set('limit', '30');
-encodedParams.set('location_id', '201012');
-encodedParams.set('currency', 'IND');
 
 export default function Home() {
   const [restaurantData, setrestaurantData] = React.useState(localRestaurants);
+  const API_KEY = '7885325ad0mshc35e21f8ad91717p11b15cjsn1e443e14fbda';
+  
+  const encodedParams = new URLSearchParams();
+  encodedParams.set('language', 'en_US');
+  encodedParams.set('limit', '30');
+  encodedParams.set('location_id', '201012');
+  encodedParams.set('currency', 'IND');
 
   const getRestaurantsFromYelp = () => {
     const URL = `https://worldwide-restaurants.p.rapidapi.com/search`;
